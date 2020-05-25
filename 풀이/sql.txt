@@ -1,0 +1,14 @@
+create table members(
+id varchar2(20),
+pwd varchar2(20),
+name varchar2(20),
+addr varchar2(100),
+tel varchar2(15),
+primary key(id)
+);
+
+insert into members values('aaa','111','홍길동','산골짜기','01077779999');
+insert into members values('bbb','111','고길동','마포구','01012341234');
+insert into members values('ccc','111','현대인','마포구','01099991111');
+
+commit;

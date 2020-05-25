@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<context>
+	<Resource 
+		name="jdbc/oracle"
+		driverClassName="oracle.jdbc.driver.OracleDriver"
+		type="javax.sql.DataSource" 
+		url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
+		username="kgitbank"
+		password="kgitbank"
+		maxActive="20"
+		maxIdle="10"
+		maxWait="-1"
+	/>
+</context>
+<!-- 
+연결이 되면 이 커넥션풀의 객체는 DataSource클래스타입이다. 
+maxActive는 최대 연결수, maxWait는 대기시간(-1은 대기하지 않겠다?)
+
+기존에 우리가 하던 연결방식
+1. 드라이버올리기
+2. 연결객체 생성
+3. SQL문 객체화
+4. 쿼리전송
+
+위의 DBCP를 만듬으로서 2번 연결객체 생성까지는 알아서 수행이 된다. 
+(JDBC Template이나 Mybatis는 3번까지 해준다. 객체화에 있어서 bean(xml)방식과 Annotation방식이 있었다)
+-->

@@ -1,0 +1,26 @@
+list.jsp에서..
+
+<%
+	//게시판의 모든 값(목록)을 가져와서 현재 페이지에 보여주기
+	//ArrayList<TestDTO> listDto = dao.listView();  
+	//System.out.print(listDto);
+	
+	if (listDto==null || listDto.size() == 0){
+		out.print("출력할 내용이 없습니다.");
+	}
+	else{ %>
+		<table border='1'>
+			<tr>
+				<th>번호</th><th>제목</th><th>등록날짜</th><th>조회수</th>
+			</tr>
+		<%for (TestDTO dto: listDto) {%>	
+			<tr>
+				<td><%=dto.getNum() %></td><td><%=dto.getTitle() %></td>
+				<td><%=dto.getPdate() %></td><td><%=dto.getCount() %></td>
+			</tr>
+		<%} %>
+			<tr>
+				<td colspan='4' align='right'><button type="button" onclick="location.href='regForm.jsp'">글쓰기</button></td>
+			</tr>
+		</table>
+<%} %>

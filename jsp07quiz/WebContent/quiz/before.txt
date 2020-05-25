@@ -1,0 +1,29 @@
+문제를 풀기 전 데이터베이스에서 해줘야 할 사항. jsp파일로 구현할 수 있겠지만.
+
+conn jsp001/1234
+
+create table members(
+id varchar2(20),
+pwd varchar2(20),
+name varchar2(20),
+addr varchar2(200),
+tel varchar2(15),
+primary key(id));
+
+insert into members values('abcd', 'abcd123', '김길동', '서울시', '010-1213-1234');
+insert into members values('qwer', 'qwer123', '고구고', '미국', '010-1414-5151');
+insert into members values('asdf', 'asdf123', '바나나', '프랑스', '010-4152-1452');
+
+쌍따옴표로 값 입력하려 하면 오류
+
+select * from members; 로 값이 잘 들어갔는지 확인
+set linesize 300 으로 출력길이 지정
+commit; 으로 확정
+
+
+나중에는 회원가입페이지도 연동해야함. 회원가입, 정보수정, 삭제, 로그인, 로그아웃
+또 페이지마다 다 데이터베이스접근 스크립틀릿을 반복적으로 써줘야하므로 이에 대해 간단화하기 위해 beans라는 것을 이용 할 것이다.
+
+로그인 실패시 history.back() 스크립트언어가 있음. 바로 전 페이지로 이동시키는.
+보통 다른 페이지로 보낼 때 response.sentRedirect()를 쓰기도 하고.. -> 값의 전송 불가 및 스크립트 실행 불가. 단순히 페이지 던지는 명령문
+그냥 location.href만 쓰면 이동함
